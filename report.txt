@@ -1,0 +1,11 @@
+Current date and time is : Wed Oct 16 13:15:37 IST 2024
+Name of current user : jprathushadevi
+Internal ip address : 192.168.127.83
+Hostname: C18129
+External IP Address: 83.142.187.20
+OS Version: macOS 14.4
+System Uptime: 2:40, 2
+Disk Usage (in GB): 9.5Gi used, 416Gi free
+Total RAM: 18.00 GB
+Free RAM: 0 GB
+CPU Info: 11 cores, 
