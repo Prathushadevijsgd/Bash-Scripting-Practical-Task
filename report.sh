@@ -14,7 +14,7 @@ RAM_FREE=$(vm_stat | awk 'BEGIN {free=0} {if ($1 ~ /Pages_free:/) free=$2} END {
 echo "Total RAM: $(echo "scale=2; $RAM_TOTAL/1073741824" | bc) GB"
 echo "Free RAM: $(echo "scale=2; $RAM_FREE/1073741824" | bc) GB"
 
-echo "CPU Info: $(sysctl -n hw.physicalcpu) cores, $(sysctl -n hw.cpufrequency | awk '{print $2 / 1000000 " MHz"}')"
+echo "CPU Info: $(sysctl -n hw.physicalcpu) cores $(sysctl -n hw.cpufrequency | awk '{print $2 / 1000000 " MHz"}')"
 } > "$REPORT_FILE"
 
 echo "Report generated: $REPORT_FILE"
