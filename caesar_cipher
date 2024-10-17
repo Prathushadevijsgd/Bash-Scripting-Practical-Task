@@ -1,0 +1,35 @@
+#!/bin/bash
+
+caesar_cipher() {
+    local word="$1"
+    local shift="$2"
+    local result=""
+
+    for ((i = 0; i < ${#word}; i++)); do
+        char="${word:i:1}"
+
+        if [[ "$char" =~ [A-Za-z] ]]; then
+            
+            ascii_value=$(printf "%d" "'$char")
+
+            if [[ "$char" =~ [A-Z] ]]; then
+                new_char=$(printf "\\$(printf '%03o' $(( (ascii_value - 65 + shift) % 26 + 65 )))")
+            else
+                new_char=$(printf "\\$(printf '%03o' $(( (ascii_value - 97 + shift) % 26 + 97 )))")
+            fi
+            
+            result+="$new_char"
+        else
+            result+="$char"  # Non-alphabetic characters remain unchanged
+        fi
+    done
+
+    echo "$result"
+}
+
+read -p "Enter the word: " input_word
+read -p "Enter the shift value: " shift_value
+
+output=$(caesar_cipher "$input_word" "$shift_value")
+echo "Output: $output"
+
